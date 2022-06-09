@@ -1,0 +1,26 @@
+{
+  "name": "azure_blob_to_s3",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\"",
+    "experiment-config": "npx ts-node .\\experiments\\s3Client_experiments.ts",
+    "experiment-blob-operations": "npx ts-node .\\experiments\\blobClient_experiment.ts",
+    "experiment-list-bucket": "npx ts-node .\\experiments\\s3ClientDownload_experiments.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.92.0",
+    "aws-sdk": "^2.1137.0",
+    "@azure/storage-blob": "^12.10.0",
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "@azure/functions": "^3.0.0",
+    "@types/node": "^17.0.34",
+    "typescript": "^4.0.0"
+  }
+}

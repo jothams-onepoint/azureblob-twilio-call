@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "connection": "BLOB_STORAGE"
+    }
+  ],
+  "scriptFile": "../dist/fn-lexblob-to-ptcs3/index.js"
+}

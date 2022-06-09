@@ -1,0 +1,12 @@
+{
+    "bindings": [
+        {
+            "name": "myBlob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "pass-to-ptc-test-s3",
+            "connection": "BLOB_STORAGE"
+        }
+    ],
+    "scriptFile": "../dist/LexingtonBlobTrigger/index.js"
+}
