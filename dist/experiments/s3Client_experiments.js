@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const s3Client_1 = require("../libs/s3Client");
+const s3Client_1 = require("../fn-lexblob-to-ptcs3/s3Client");
 console.log('config', s3Client_1.config);
 // uploadFile("./experiments/dummy.txt")
 //     .then((data) => console.info(`Success ${JSON.stringify(data)}`))

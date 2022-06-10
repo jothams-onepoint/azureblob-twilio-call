@@ -1,6 +1,6 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import { listBucket, getFromS3, removeFromS3 } from "../libs/s3Client";
-import { addFileToBlob } from "../libs/blobClient";
+import { listBucket, getFromS3, removeFromS3 } from "../fn-lexblob-to-ptcs3/s3Client";
+import { addFileToBlob } from "../fn-lexblob-to-ptcs3/blobClient";
 
 const FILE_FILTER = process.env.FILE_FILTER;
 const DIR_NAME = process.env.DIR_NAME_OUT;

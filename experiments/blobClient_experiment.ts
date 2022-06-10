@@ -1,4 +1,4 @@
-import { containerClient, generateArchiveFolder, archiveContainerClient, getSignedUrl, archiveBlob} from "../libs/blobClient";
+import { containerClient, generateArchiveFolder, archiveContainerClient, getSignedUrl, archiveBlob} from "../fn-lexblob-to-ptcs3/blobClient";
 
 const archiveFolder = generateArchiveFolder()
 

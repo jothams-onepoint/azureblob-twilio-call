@@ -1,6 +1,6 @@
 import { AzureFunction, Context } from "@azure/functions"
-import { uploadBlob } from "../libs/s3Client";
-import { archiveBlob } from "../libs/blobClient";
+import { uploadBlob } from "./s3Client";
+import { archiveBlob } from "./blobClient";
 
 const extractName = (bindingData: string) : string => {
     const splits = bindingData.split('/')

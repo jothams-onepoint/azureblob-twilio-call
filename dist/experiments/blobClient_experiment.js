@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const blobClient_1 = require("../libs/blobClient");
+const blobClient_1 = require("../fn-lexblob-to-ptcs3/blobClient");
 const archiveFolder = (0, blobClient_1.generateArchiveFolder)();
 console.log('archiveFolder', archiveFolder);
 blobClient_1.containerClient.exists().then((res) => __awaiter(void 0, void 0, void 0, function* () {

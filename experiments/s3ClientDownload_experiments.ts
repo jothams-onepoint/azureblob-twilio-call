@@ -1,4 +1,4 @@
-import { listBuckets, listBucket } from "../libs/s3Client";
+import { listBuckets, listBucket } from "../fn-lexblob-to-ptcs3/s3Client";
 
 listBuckets()
     .then(list => {

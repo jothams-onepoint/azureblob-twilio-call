@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const s3Client_1 = require("../libs/s3Client");
-const blobClient_1 = require("../libs/blobClient");
+const s3Client_1 = require("./s3Client");
+const blobClient_1 = require("./blobClient");
 const extractName = (bindingData) => {
     const splits = bindingData.split('/');
     return splits[splits.length - 1];
