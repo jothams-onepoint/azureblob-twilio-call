@@ -1,4 +1,4 @@
-import { config, uploadBlob } from "../fn-lexblob-to-ptcs3/s3Client";
+import { config, uploadBlob } from "../libs/s3Client";
 
 console.log('config', config)
 

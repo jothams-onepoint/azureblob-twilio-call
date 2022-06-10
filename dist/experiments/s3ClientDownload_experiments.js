@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const s3Client_1 = require("../fn-lexblob-to-ptcs3/s3Client");
+const s3Client_1 = require("../libs/s3Client");
 (0, s3Client_1.listBuckets)()
     .then(list => {
     console.log("buckets", list);
