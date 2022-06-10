@@ -36,13 +36,24 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
             })
         );
         
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: {
-                success: files.map(f => f.success).reduce((curr, prev) => curr && prev),
-                filesMoved: files
-            }
-        };
+        if (files.length === 0) {
+            // no files were found
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: {
+                    success: true,
+                    filesMoved: "No Files Found"
+                }
+            };
+        } else {
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: {
+                    success: files.map(f => f.success).reduce((curr, prev) => curr && prev),
+                    filesMoved: files
+                }
+            };
+        }
     } catch(e) {
         console.error("Error occurred", e)
         context.res = {

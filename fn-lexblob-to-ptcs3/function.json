@@ -4,7 +4,8 @@
       "name": "myBlob",
       "type": "blobTrigger",
       "direction": "in",
-      "connection": "BLOB_STORAGE"
+      "connection": "BLOB_STORAGE_IN",
+      "path": "pass-to-ptc-test-s3"
     }
   ],
   "scriptFile": "../dist/fn-lexblob-to-ptcs3/index.js"

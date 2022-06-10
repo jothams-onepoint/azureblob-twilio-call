@@ -1,6 +1,6 @@
 import { AzureFunction, Context } from "@azure/functions"
 import { uploadBlob } from "./s3Client";
-import { archiveBlob } from "./blobClient";
+import { archiveBlob } from "../fn-lexblob-to-ptcs3/blobClient";
 
 const extractName = (bindingData: string) : string => {
     const splits = bindingData.split('/')
