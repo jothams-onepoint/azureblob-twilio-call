@@ -4,9 +4,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const inputConnectionString = process.env.BLOB_STORAGE_IN
-const outputConnectionString = process.env.BLOB_STORAGE_OUT
 const inContainer = process.env.CONTAINER_IN
-const outContainer = process.env.CONTAINER_OUT
 const archiveContainer = process.env.ARCHIVE_CONTAINER || inContainer
 
 // Create the BlobServiceClient object which will be used to create a container client
@@ -14,13 +12,8 @@ const inputBlobServiceClient = BlobServiceClient.fromConnectionString(
     inputConnectionString
 );
 
-const outputBlobServiceClient = BlobServiceClient.fromConnectionString(
-    outputConnectionString
-);
-
 // Get a reference to a container
 export const containerClient = inputBlobServiceClient.getContainerClient(inContainer);
-export const destContainerClient = outputBlobServiceClient.getContainerClient(outContainer);
 export const archiveContainerClient = inputBlobServiceClient.getContainerClient(archiveContainer);
 
 export const generateArchiveFolder = () => {
@@ -71,17 +64,5 @@ export const listBlobSimple = async (containerClient) => {
     let i = 1;
     for await (const blob of containerClient.listBlobsFlat()) {
       console.log(`Blob ${i++}: ${blob.name}`);
-    }
-}
-
-export const addFileToBlob = async (data: any, fileName: string): Promise<boolean> => {
-    // upload data to the blob
-    const blockBlobClient = destContainerClient.getBlockBlobClient(fileName) // create a blob block for the new file
-    console.info(`Uploading ${fileName} to blob`)
-    const response = await blockBlobClient.upload(data, data.length)
-    if (response._response.status !== 201) {
-        return false;
-    } else {
-        return true;
     }
 }
