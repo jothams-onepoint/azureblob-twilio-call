@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.92.0",
-    "aws-sdk": "^2.1137.0",
     "@azure/storage-blob": "^12.10.0",
-    "dotenv": "^16.0.1"
+    "aws-sdk": "^2.1137.0",
+    "dotenv": "^16.0.1",
+    "twilio": "^3.82.0",
+    "twilio-cli": "^5.0.0"
   },
   "devDependencies": {
     "@azure/functions": "^3.0.0",

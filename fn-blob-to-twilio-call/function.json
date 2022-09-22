@@ -8,5 +8,5 @@
       "path": "pass-to-ptc-test-s3"
     }
   ],
-  "scriptFile": "../dist/fn-lexblob-to-ptcs3/index.js"
+  "scriptFile": "../dist/fn-blob-to-twilio-call/index.js"
 }
