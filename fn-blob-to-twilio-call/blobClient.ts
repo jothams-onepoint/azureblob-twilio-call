@@ -3,9 +3,9 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-const inputConnectionString = process.env.BLOB_STORAGE_IN
-const inContainer = process.env.CONTAINER_IN
-const archiveContainer = process.env.ARCHIVE_CONTAINER || inContainer
+const inputConnectionString = process.env.BLOB_STORAGE
+const container = process.env.CONTAINER
+const archiveContainer = process.env.ARCHIVE_CONTAINER || container
 
 // Create the BlobServiceClient object which will be used to create a container client
 const inputBlobServiceClient = BlobServiceClient.fromConnectionString(
@@ -13,7 +13,7 @@ const inputBlobServiceClient = BlobServiceClient.fromConnectionString(
 );
 
 // Get a reference to a container
-export const containerClient = inputBlobServiceClient.getContainerClient(inContainer);
+export const containerClient = inputBlobServiceClient.getContainerClient(container);
 export const archiveContainerClient = inputBlobServiceClient.getContainerClient(archiveContainer);
 
 export const generateArchiveFolder = () => {
@@ -44,7 +44,7 @@ export const archiveBlob = async (sourceFile: string) : Promise<any> => {
     const blobFile = containerClient.getBlockBlobClient(sourceFile)
     const exists = await blobFile.exists()
     if(!exists) {
-        return {"message": `File '${sourceFile}' does not exist in blob '${inContainer}'.`}
+        return {"message": `File '${sourceFile}' does not exist in blob '${container}'.`}
     }
     const archiveFolder = generateArchiveFolder()
     const targetFile = `${archiveFolder}/${sourceFile}`
