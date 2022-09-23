@@ -5,7 +5,7 @@
       "type": "blobTrigger",
       "direction": "in",
       "connection": "BLOB_STORAGE",
-      "path": "pass-to-ptc-test-s3"
+      "path": "poc/call_to_operators"
     }
   ],
   "scriptFile": "../dist/fn-blob-to-twilio-call/index.js"
