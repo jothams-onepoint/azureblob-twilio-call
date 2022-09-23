@@ -5,7 +5,7 @@
       "type": "blobTrigger",
       "direction": "in",
       "connection": "BLOB_STORAGE",
-      "path": "CONTAINER"
+      "path": "call-to-operators-poc"
     }
   ],
   "scriptFile": "../dist/fn-blob-to-twilio-call/index.js"
