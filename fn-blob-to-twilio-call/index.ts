@@ -19,7 +19,7 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
     context.log("File name", fileName);
     try {
         // upload to twilio
-        const twilioResults = createTwilioCalls(BASE_URL+fullPath);
+        const twilioResults = await createTwilioCalls(BASE_URL+fullPath);
         context.log("Twilio result", JSON.stringify(twilioResults));
         // move blob to archive folder
         const result = await archiveBlob(fileName);
