@@ -23,7 +23,7 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
         const result = await archiveBlob(fileName);
         context.log("Archive result", JSON.stringify(result));
     } catch(e) {
-        context.log("Failed to upload", e);
+        context.log("Failure sending calls:", e);
     }
 };
 
