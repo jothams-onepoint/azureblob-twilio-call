@@ -9,19 +9,19 @@ const phoneList = process.env.RECIPIENTS;
 
 const client = new Twilio(accountSid, authToken);
 
-export async function createTwilioCalls(url: string, context: Context): Promise<{operator: string, response: CallInstance}[]> {
+export async function createTwilioCalls(message: string, context: Context): Promise<{operator: string, response: CallInstance}[]> {
     // make calls using twilio
     const results: {operator: string, response: CallInstance}[] = [];
     context.log("Twilio Number: "+twilioNumber);
-    context.log("TwiML URL: "+url);
+    context.log("Message: "+message);
     const operatorNumbers = phoneList.split(";");
     for (let operator in operatorNumbers) {
         context.log("Calling Operator: "+operatorNumbers[operator]);
         const response = await client.calls.create(
             {
+                twiml: `<Response><Say>${message}</Say></Response>`,
                 from: twilioNumber,
                 to: operatorNumbers[operator],
-                url: url
             }
         );
         results.push({operator, response});
