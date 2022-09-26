@@ -21,7 +21,7 @@ export async function createTwilioCalls(message: string, context: Context): Prom
     twiml.say({
         voice: "man",
         language:"en-GB"
-    }, message);
+    }, message.toString());
 
     const operatorNumbers = phoneList.split(";");
     for (let operator in operatorNumbers) {
