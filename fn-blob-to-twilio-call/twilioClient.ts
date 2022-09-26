@@ -33,7 +33,7 @@ export async function createTwilioCalls(message: string, context: Context): Prom
                 to: operatorNumbers[operator],
             }
         );
-        results.push({operator, response});
+        results.push({operator: operatorNumbers[operator], response});
     }
 
     return results;
