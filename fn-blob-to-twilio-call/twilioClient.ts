@@ -10,27 +10,31 @@ const phoneList = process.env.RECIPIENTS;
 
 const client = new Twilio(accountSid, authToken);
 
-export async function createTwilioCalls(message: string, context: Context): Promise<{operator: string, response: CallInstance}[]> {
+export async function createTwilioCalls(message: any, context: Context): Promise<{operator: string, response: CallInstance}[]> {
     // make calls using twilio
     const results: {operator: string, response: CallInstance}[] = [];
     context.log("Twilio Number: "+twilioNumber);
     context.log("Message: "+message);
+
+    // blob as JSON
+    // const blobAsJSON: Record<string, string> = JSON.parse(message.toString());
 
     // construct twiML
     const twiml = new VoiceResponse();
     twiml.say({
         voice: "man",
         language:"en-GB"
-    }, message.toString());
+    }, message.toString()); // blob needs to be converted to string
 
     const operatorNumbers = phoneList.split(";");
+    // const operatorNumbers = blobAsJSON.recipients.split(";");
     for (let operator in operatorNumbers) {
         context.log("Calling Operator: "+operatorNumbers[operator]);
         const response = await client.calls.create(
             {
                 twiml: twiml.toString(),
                 from: twilioNumber,
-                to: operatorNumbers[operator],
+                to: operatorNumbers[operator]
             }
         );
         results.push({operator: operatorNumbers[operator], response});

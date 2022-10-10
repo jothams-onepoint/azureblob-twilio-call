@@ -51,7 +51,7 @@ export const archiveBlob = async (sourceFile: string) : Promise<any> => {
     const blobFileCopy = archiveContainerClient.getBlockBlobClient(targetFile)
     const copyExists = await blobFileCopy.exists()
     if(copyExists) {
-        return {"message": `File '${targetFile}' does not exist in blob '${archiveContainer}'.`}
+        return {"message": `File '${targetFile}' already exists in blob '${archiveContainer}'.`}
     }
     const signedUrl = await getSignedUrl(blobFile)
     const res = await blobFileCopy.syncCopyFromURL(signedUrl)
